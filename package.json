@@ -1,0 +1,22 @@
+{
+  "name": "learn-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LDQ-first/learn-express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LDQ-first/learn-express/issues"
+  },
+  "homepage": "https://github.com/LDQ-first/learn-express#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
