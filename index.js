@@ -18,9 +18,8 @@ const mw3 = (req, res, next) => {
   res.end('done')
 }
 
-app.use(mw1)
-app.use(mw2)
-app.use(mw3)
+
+app.use(mw1, mw2, mw3)
 
 // app.use(auth)
 
