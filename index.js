@@ -3,17 +3,26 @@ const http = require('http')
 const app = express()
 const auth = require('./middlewares/auth.js')
 
-app.use(auth)
+const mw1 = (req, res, next) => {
+  console.log('mw1')
+  next()
+}
 
-app.use((req, res, next) => {
-  console.log('oh you got middleware no.1')
-  next('something wrong')
-})
+const mw2 = (req, res, next) => {
+  console.log('mw2')
+  next()
+}
 
-app.use((req, res) => {
-  console.log('oh you got middleware no.2')
-  res.end('Hello my express demo!')
-})
+const mw3 = (req, res, next) => {
+  console.log('mw3')
+  res.end('done')
+}
+
+app.use(mw1)
+app.use(mw2)
+app.use(mw3)
+
+// app.use(auth)
 
 app.use((err, req, res, next) => {
   res.end(err)
