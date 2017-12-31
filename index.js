@@ -2,10 +2,25 @@ const express = require('express')
 const http = require('http')
 const app = express()
 const auth = require('./middlewares/auth.js')
+const bodyParser = require('body-parser')
 
-const mw1 = (req, res, next) => {
-  console.log('mw1')
-  next()
+/**
+ * 帮你解析传过来的json格式和url
+ * 
+*/
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+const mw1 = (options) => {
+  return (req, res, next) => {
+   /* if (options.whatEver) {
+      console.log('hey')
+    }*/
+    console.log(req.body)
+    console.log('mw1')
+    next()
+  }
 }
 
 const mw2 = (req, res, next) => {
@@ -18,8 +33,7 @@ const mw3 = (req, res, next) => {
   res.end('done')
 }
 
-
-app.use(mw1, [mw2, mw3])
+app.use(mw1(), [mw2, mw3])
 
 // app.use(auth)
 
