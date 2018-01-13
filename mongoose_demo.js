@@ -21,16 +21,18 @@ const UserSchema = new Schema({
 const UserModel = mongoose.model('user', UserSchema)
 
 ;(async ()=> {
-  /*const u = await UserModel.create({
+  /* const u = await UserModel.create({
     name: "b",
     age: 21
   })
-  return u*/
-  /*const users = await UserModel.findOne({
+  return u */
+  /* const users = await UserModel.findOne({
     name: 'a'
-  })*/
-  const users = await UserModel.find({}, { age: 1 })
-  return users
+  }) */
+  // const users = await UserModel.find({}, { age: 1 })
+  // const user = await UserModel.update({ name: 'a' }, { age:166 })
+  const user = await UserModel.findOneAndUpdate({ name: 'a' }, { age:136 }, { new: true })
+  return user
 })()
  .then((r) => {
    console.log(r)
